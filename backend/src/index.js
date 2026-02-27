@@ -1,4 +1,6 @@
 // Campus Event Hub - Express Backend Server
+require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const { initializeFirebase } = require("./config/firebase");
@@ -334,26 +336,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`
-╔════════════════════════════════════════════════════════════╗
-║         Campus Event Hub - Backend Server                  ║
-╠════════════════════════════════════════════════════════════╣
-║  Server running on http://localhost:${PORT}                   ║
-║  Dashboard:        http://localhost:${PORT}/dashboard         ║
-║                                                            ║
-║  API Endpoints:                                            ║
-║  • GET    /api/health           - Health check             ║
-║  • GET    /api/events           - Get all events           ║
-║  • GET    /api/events/:id       - Get event by ID          ║
-║  • POST   /api/events           - Create event             ║
-║  • PUT    /api/events/:id       - Update event             ║
-║  • DELETE /api/events/:id       - Delete event             ║
-║  • GET    /api/activity         - Activity logs            ║
-║  • GET    /api/registrations/my - Get my registrations     ║
-║  • POST   /api/registrations    - Register for event       ║
-║  • DELETE /api/registrations/:id - Unregister              ║
-╚════════════════════════════════════════════════════════════╝
-  `);
+  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;

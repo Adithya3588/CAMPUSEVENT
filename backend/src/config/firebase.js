@@ -6,7 +6,7 @@ const admin = require("firebase-admin");
 const initializeFirebase = () => {
   if (!admin.apps.length) {
     admin.initializeApp({
-      projectId: "college-event-system-88e9b",
+      projectId: process.env.FIREBASE_PROJECT_ID || "college-event-system-88e9b",
     });
   }
   return admin;
